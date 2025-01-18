@@ -83,9 +83,13 @@ int main() {
     float image[] = {3, 6, 1, 6, 3, 2, 1, 7}; // Imaginary parts
     int size = 8; // Number of points in the FFT
 
+    printf("%ld\n", read_cycles()); // Print the cycle count before the FFT computation
+
     DIT_FFT(size, real, image);
     for (int i = 0; i < size; i++) {
         printf("%f + %fi\n",real[i], image[i]);
     }
+
+    printf("%ld\n", read_cycles()); // Print the cycle count after the FFT computation
     return 0;
 }
